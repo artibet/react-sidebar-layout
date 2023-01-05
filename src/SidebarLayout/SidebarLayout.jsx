@@ -140,7 +140,7 @@ export const SidebarLayout = ({
       marginTop: `${topbarHeight}px`,
       marginLeft: isAboveBreakpoint ? `${context.theme.sidebar.width}px` : '0px',
       minHeight: `calc(100vh - ${topbarHeight + context.theme.mainContent.padding * 2}px)`,
-      minWidth: isAboveBreakpoint ? `calc(100vw - ${context.theme.sidebar.width + context.theme.mainContent.padding * 2}px)` : `calc(100vw - ${context.theme.mainContent.padding * 2}px)`,
+      minWidth: isAboveBreakpoint ? `calc(100vw - ${context.theme.sidebar.width + context.theme.mainContent.padding * 2}px - (100vw - 100%))` : `calc(100vw - ${context.theme.mainContent.padding * 2}px - (100vw - 100%))`,
       color: context.theme.mainContent.textColor,
       backgroundColor: context.theme.mainContent.backgroundColor,
       padding: `${context.theme.mainContent.padding}px`,
