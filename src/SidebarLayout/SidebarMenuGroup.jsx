@@ -1,7 +1,7 @@
 import React from 'react'
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { SidebarLayoutContext } from './SidebarLayout.jsx'
-import { MdExpandLess, MdExpandMore, MdStarBorder } from 'react-icons/md'
+import { MdExpandLess, MdExpandMore } from 'react-icons/md'
 import { SidebarMenuItem } from './SidebarMenuItem.jsx'
 
 export const SidebarMenuGroup = ({ menuGroup }) => {
