@@ -14,7 +14,7 @@ export const SidebarLayout = ({
   sidebarLogo,
   topbarLogo,
   sidebarMenuItems = [],
-  topbarDropdownMenus = [],
+  topbarMenuItems = [],
   customize,
 }) => {
 
@@ -68,7 +68,7 @@ export const SidebarLayout = ({
   // ---------------------------------------------------------------
   const context = {
     sidebarMenuItems,
-    topbarDropdownMenus,
+    topbarMenuItems,
     topbarHeight,
     isSidebarOpen,
     toggleSidebar,
@@ -98,6 +98,7 @@ export const SidebarLayout = ({
           textColor: 'textColor' in customize.topbar ? customize.topbar.textColor : selectedTheme.topbar.textColor,
           textSize: 'textSize' in customize.topbar ? customize.topbar.textSize : selectedTheme.topbar.textSize,
           backgroundColor: 'backgroundColor' in customize.topbar ? customize.topbar.backgroundColor : selectedTheme.topbar.backgroundColor,
+          menuItemHoverColor: 'menuItemHoverColor' in customize.topbar ? customize.topbar.menuItemHoverColor : selectedTheme.topbar.menuItemHoverColor,
           iconColor: 'iconColor' in customize.topbar ? customize.topbar.iconColor : selectedTheme.topbar.iconColor,
           iconSize: 'iconSize' in customize.topbar ? customize.topbar.iconSize : selectedTheme.topbar.iconSize,
           logoAlwaysVisible: 'logoAlwaysVisible' in customize.topbar ? customize.topbar.logoAlwaysVisible : selectedTheme.topbar.logoAlwaysVisible,

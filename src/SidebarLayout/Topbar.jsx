@@ -4,6 +4,7 @@ import { MdMenu } from 'react-icons/md'
 import { SidebarLayoutContext } from './SidebarLayout.jsx'
 import { TopbarLogo } from './TopbarLogo.jsx'
 import { DropdownMenu } from '../DropdownMenu/DropdownMenu.jsx'
+import { TopbarMenuItem } from './TopbarMenuItem.jsx'
 
 export const Topbar = () => {
 
@@ -15,7 +16,7 @@ export const Topbar = () => {
     topbarLogo,
     toggleSidebar,
     isAboveBreakpoint,
-    topbarDropdownMenus,
+    topbarMenuItems,
   } = React.useContext(SidebarLayoutContext)
 
   // ---------------------------------------------------------------
@@ -60,13 +61,24 @@ export const Topbar = () => {
 
             </Box>
 
-            {/* Dropdonw menus - right-side */}
-            <Box sx={{ display: 'flex', justifyContent: 'right' }}>
+            {/* menu items */}
+            <Box sx={{ display: 'flex', justifyContent: 'right', alignItems: 'center' }}>
               {
-                topbarDropdownMenus &&
-                topbarDropdownMenus.map((menu, index) => (
-                  <DropdownMenu menu={menu} key={index} />
+                topbarMenuItems.map((item, index) => (
+                  <Box key={index}>
+                    {
+                      'group' in item
+                        ? <DropdownMenu menu={item} />
+                        : <TopbarMenuItem menuItem={item} />
+                    }
+                  </Box>
                 ))
+
+
+                // topbarMenuItems &&
+                // topbarMenuItems.map((menu, index) => (
+                //   <DropdownMenu menu={menu} key={index} />
+                // ))
               }
             </Box>
 

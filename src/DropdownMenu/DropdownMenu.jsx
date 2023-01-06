@@ -90,7 +90,7 @@ export const DropdownMenu = ({ menu }) => {
         }}
       >
         {
-          menu.items.map((item, index) => (
+          menu.group.map((item, index) => (
             <DropdownMenuItem menuItem={item} key={index} closeMenu={handleCloseMenu} />
           ))
         }

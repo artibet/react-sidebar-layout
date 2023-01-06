@@ -20,6 +20,7 @@ export const defaultDarkTheme = {
     textColor: '#E4E6EB',
     textSize: 16,
     backgroundColor: '#323639',
+    menuItemHoverColor: '#5F6368',
     iconColor: '#E4E6EB',
     iconSize: 24,
     logoAlwaysVisible: true

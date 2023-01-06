@@ -1,5 +1,5 @@
-import { Divider, ListItemIcon, ListItemText, MenuItem, Typography } from '@mui/material'
 import React from 'react'
+import { Divider, ListItemIcon, ListItemText, MenuItem, Typography } from '@mui/material'
 import { SidebarLayoutContext } from '../SidebarLayout/SidebarLayout.jsx'
 
 export const DropdownMenuItem = ({ menuItem, closeMenu }) => {

@@ -20,6 +20,7 @@ export const defaultLightTheme = {
     textColor: '#FFFFFF',
     textSize: 16,
     backgroundColor: '#1976D2',
+    menuItemHoverColor: '#1871CA',
     iconColor: '#E4E6EB',
     iconSize: 24,
     logoAlwaysVisible: true
