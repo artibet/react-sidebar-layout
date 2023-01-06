@@ -77,52 +77,52 @@ export const SidebarLayout = ({
     topbarLogo,
 
     theme: {
-      sidebar: Boolean(customize) && customize.sidebar
+      sidebar: Boolean(customize) && 'sidebar' in customize
         ? {
-          width: customize.sidebar.width ? customize.sidebar.width : selectedTheme.sidebar.width,
-          textColor: customize.sidebar.textColor ? customize.sidebar.textColor : selectedTheme.sidebar.textColor,
-          backgroundColor: customize.sidebar.backgroundColor ? customize.sidebar.backgroundColor : selectedTheme.sidebar.backgroundColor,
-          logoBorderBottom: customize.sidebar.logoBorderBottom ? customize.sidebar.logoBorderBottom : selectedTheme.sidebar.logoBorderBottom,
-          menuItemBorderBottom: customize.sidebar.menuItemBorderBottom ? customize.sidebar.menuItemBorderBottom : selectedTheme.sidebar.menuItemBorderBottom,
-          menuItemHoverColor: customize.sidebar.menuItemHoverColor ? customize.sidebar.menuItemHoverColor : selectedTheme.sidebar.menuItemHoverColor,
-          menuItemActiveBackgroundColor: customize.sidebar.menuItemActiveBackgroundColor ? customize.sidebar.menuItemActiveBackgroundColor : selectedTheme.sidebar.menuItemActiveBackgroundColor,
-          menuItemActiveTextColor: customize.sidebar.menuItemActiveTextColor ? customize.sidebar.menuItemActiveTextColor : selectedTheme.sidebar.menuItemActiveTextColor,
-          iconColor: customize.sidebar.iconColor ? customize.sidebar.iconColor : selectedTheme.sidebar.iconColor,
-          iconSize: customize.sidebar.iconSize ? customize.sidebar.iconSize : selectedTheme.sidebar.iconSize,
-          breakpoint: customize.sidebar.breakpoint ? customize.sidebar.breakpoint : selectedTheme.sidebar.breakpoint,
+          width: 'width' in customize.sidebar ? customize.sidebar.width : selectedTheme.sidebar.width,
+          textColor: 'textColor' in customize.sidebar ? customize.sidebar.textColor : selectedTheme.sidebar.textColor,
+          backgroundColor: 'backgroundColor' in customize.sidebar ? customize.sidebar.backgroundColor : selectedTheme.sidebar.backgroundColor,
+          logoBorderBottom: 'logoBorderBottom' in customize.sidebar ? customize.sidebar.logoBorderBottom : selectedTheme.sidebar.logoBorderBottom,
+          menuItemBorderBottom: 'menuItemBorderBottom' in customize.sidebar ? customize.sidebar.menuItemBorderBottom : selectedTheme.sidebar.menuItemBorderBottom,
+          menuItemHoverColor: 'menuItemHoverColor' in customize.sidebar ? customize.sidebar.menuItemHoverColor : selectedTheme.sidebar.menuItemHoverColor,
+          menuItemActiveBackgroundColor: 'menuItemActiveBackgroundColor' in customize.sidebar ? customize.sidebar.menuItemActiveBackgroundColor : selectedTheme.sidebar.menuItemActiveBackgroundColor,
+          menuItemActiveTextColor: 'menuItemActiveTextColor' in customize.sidebar ? customize.sidebar.menuItemActiveTextColor : selectedTheme.sidebar.menuItemActiveTextColor,
+          iconColor: 'iconColor' in customize.sidebar ? customize.sidebar.iconColor : selectedTheme.sidebar.iconColor,
+          iconSize: 'iconSize' in customize.sidebar ? customize.sidebar.iconSize : selectedTheme.sidebar.iconSize,
+          breakpoint: 'breakpoint' in customize.sidebar ? customize.sidebar.breakpoint : selectedTheme.sidebar.breakpoint,
         }
         : selectedTheme.sidebar,
 
-      topbar: Boolean(customize) && customize.topbar
+      topbar: Boolean(customize) && 'topbar' in customize
         ? {
-          textColor: customize.topbar.textColor ? customize.topbar.textColor : selectedTheme.topbar.textColor,
-          textSize: customize.topbar.textSize ? customize.topbar.textSize : selectedTheme.topbar.textSize,
-          backgroundColor: customize.topbar.backgroundColor ? customize.topbar.backgroundColor : selectedTheme.topbar.backgroundColor,
-          iconColor: customize.topbar.iconColor ? customize.topbar.iconColor : selectedTheme.topbar.iconColor,
-          iconSize: customize.topbar.iconSize ? customize.topbar.iconSize : selectedTheme.topbar.iconSize,
-          logoAlwaysVisible: customize.topbar.logoAlwaysVisible ? customize.topbar.logoAlwaysVisible : selectedTheme.topbar.logoAlwaysVisible,
+          textColor: 'textColor' in customize.topbar ? customize.topbar.textColor : selectedTheme.topbar.textColor,
+          textSize: 'textSize' in customize.topbar ? customize.topbar.textSize : selectedTheme.topbar.textSize,
+          backgroundColor: 'backgroundColor' in customize.topbar ? customize.topbar.backgroundColor : selectedTheme.topbar.backgroundColor,
+          iconColor: 'iconColor' in customize.topbar ? customize.topbar.iconColor : selectedTheme.topbar.iconColor,
+          iconSize: 'iconSize' in customize.topbar ? customize.topbar.iconSize : selectedTheme.topbar.iconSize,
+          logoAlwaysVisible: 'logoAlwaysVisible' in customize.topbar ? customize.topbar.logoAlwaysVisible : selectedTheme.topbar.logoAlwaysVisible,
         }
         : selectedTheme.topbar,
 
-      popupMenu: Boolean(customize) && customize.popupMenu
+      popupMenu: Boolean(customize) && 'popupMenu' in customize
         ? {
-          backgroundColor: customize.popupMenu.backgroundColor ? customize.popupMenu.backgroundColor : selectedTheme.popupMenuTheme.backgroundColor,
-          textColor: customize.popupMenu.textColor ? customize.popupMenu.textColor : selectedTheme.popupMenuTheme.textColor,
-          textSize: customize.popupMenu.textSize ? customize.popupMenu.textSize : selectedTheme.popupMenuTheme.textSize,
-          iconColor: customize.popupMenu.iconColor ? customize.popupMenu.iconColor : selectedTheme.popupMenuTheme.iconColor,
-          iconSize: customize.popupMenu.iconSize ? customize.popupMenu.iconSize : selectedTheme.popupMenuTheme.iconSize,
-          dividerColor: customize.popupMenu.dividerColor ? customize.popupMenu.dividerColor : selectedTheme.popupMenuTheme.dividerColor,
-          hoverColor: customize.popupMenu.hoverColor ? customize.popupMenu.hoverColor : selectedTheme.popupMenuTheme.hoverColor,
-          activeColor: customize.popupMenu.activeColor ? customize.popupMenu.activeColor : selectedTheme.popupMenuTheme.activeColor,
-          selectedColor: customize.popupMenu.selectedColor ? customize.popupMenu.selectedColor : selectedTheme.popupMenuTheme.selectedColor,
+          backgroundColor: 'backgroundColor' in customize.popupMenu ? customize.popupMenu.backgroundColor : selectedTheme.popupMenuTheme.backgroundColor,
+          textColor: 'textColor' in customize.popupMenu ? customize.popupMenu.textColor : selectedTheme.popupMenuTheme.textColor,
+          textSize: 'textSize' in customize.popupMenu ? customize.popupMenu.textSize : selectedTheme.popupMenuTheme.textSize,
+          iconColor: 'iconColor' in customize.popupMenu ? customize.popupMenu.iconColor : selectedTheme.popupMenuTheme.iconColor,
+          iconSize: 'iconSize' in customize.popupMenu ? customize.popupMenu.iconSize : selectedTheme.popupMenuTheme.iconSize,
+          dividerColor: 'dividerColor' in customize.popupMenu ? customize.popupMenu.dividerColor : selectedTheme.popupMenuTheme.dividerColor,
+          hoverColor: 'hoverColor' in customize.popupMenu ? customize.popupMenu.hoverColor : selectedTheme.popupMenuTheme.hoverColor,
+          activeColor: 'activeColor' in customize.popupMenu ? customize.popupMenu.activeColor : selectedTheme.popupMenuTheme.activeColor,
+          selectedColor: 'selectedColor' in customize.popupMenu ? customize.popupMenu.selectedColor : selectedTheme.popupMenuTheme.selectedColor,
         }
         : selectedTheme.popupMenu,
 
-      mainContent: Boolean(customize) && customize.mainContent
+      mainContent: Boolean(customize) && 'mainContent' in customize
         ? {
-          textColor: customize.mainContent.textColor ? customize.mainContent.textColor : selectedTheme.mainContent.textColor,
-          backgroundColor: customize.mainContent.backgroundColor ? customize.mainContent.backgroundColor : selectedTheme.mainContent.backgroundColor,
-          padding: customize.mainContent.padding ? customize.mainContent.padding : selectedTheme.mainContent.padding,
+          textColor: 'textColor' in customize.mainContent ? customize.mainContent.textColor : selectedTheme.mainContent.textColor,
+          backgroundColor: 'backgroundColor' in customize.mainContent ? customize.mainContent.backgroundColor : selectedTheme.mainContent.backgroundColor,
+          padding: 'padding' in customize.mainContent ? customize.mainContent.padding : selectedTheme.mainContent.padding,
         }
         : selectedTheme.mainContent
     }
