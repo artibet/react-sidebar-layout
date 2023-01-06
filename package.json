@@ -1,6 +1,6 @@
 {
   "name": "@artibet/react-sidebar-layout",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "React sidebar layout component",
   "main": "index.js",
   "scripts": {
