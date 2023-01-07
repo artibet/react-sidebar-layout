@@ -178,3 +178,139 @@ The supported **sidebarLogo props** are:
 The react-sidebar-layout supports a logo at the topbar. Usually this logo is displayed only when the windows size is bellow breakpoint and it is an alternative to the applications logo (obviously it can be the same with smaller size and/or color).
 Lets create a smaller instance of the app's logo:
 
+```js
+<SidebarLayout
+  sidebarLogo={<h1>My Logo</h1>}
+  topbarLogo={<h3>My Logo</h3>}
+/>
+```
+
+To see this logo shrink the screen to reach the default breakpoint (sm):
+
+![Bare layout](/readme/img/topbar_logo.png "Topbar Logo")
+
+Just like with **sidebarLogo** prop we can use a function that return the logo component:
+
+```js
+<SidebarLayout
+  topbarLogo={(props) => <h3 style={{ color: props.textColor }}>My Logo</h3>}
+/>
+```
+
+The supported **topbarLogo props** are:
+
+|Name |Type |Description  |
+|-----|-----|-------------|
+|textColor|string|The foreground color of the text at the topbar|
+|backgroundColor|string|The background color of the topbar|
+|iconColor|string|The color of the icons at the topbar|
+|iconSize|number|The size of the icons at the topbar|
+
+If you want the topbar logo to be always visible you can either edit the respective option in the theme file or set it with the **customize** prop (for a full list of supported props and theme values see the API section):
+
+```js
+<SidebarLayout
+  sidebarLogo={<h1>My Logo</h1>}
+  topbarLogo={<h3>My Logo</h3>}
+  customize={{
+    topbar: {
+      logoAlwaysVisible: true
+    }
+  }}
+/>
+```
+
+![Bare layout](/readme/img/topbar_logo_visible.png "Topbar Logo")
+
+### Sidebar Menu Items
+
+To create sidebar menu items you must pass an array of objects into **sidebarMenuItems** prop. The supported key properties of these objects are the following:
+
+|Name|Type|default|Description|
+|----|----|--------|-----------|
+|label|string||The displayed text|
+|icon|react component||The menu icon|
+|onClick|function||The action taken on menu click event|
+|hidden|boolean|false|When set to true the menu item is not visible|
+|active|boolean|false|When set to true the menu item is highlighted|
+|group|array||An array of submenu items. The component supports only one grouping level|
+
+For example, lets create two menu items. One for Home and one for Users:
+
+```js
+import React from 'react'
+import { SidebarLayout } from '@artibet/react-sidebar-layout'
+import HomeIcon from '@mui/icons-material/Home'
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount'
+
+function App() {
+
+  const sidebarMenuItems = [
+    {
+      label: "Home",
+      icon: <HomeIcon />,
+      onClick: () => console.log('Home')
+    },
+    {
+      label: "Users",
+      icon: <SupervisorAccountIcon />,
+      onClick: () => console.log('Users')
+    }
+  ]
+
+  return (
+    <SidebarLayout
+      sidebarLogo={<h1>My Logo</h1>}
+      topbarLogo={<h3>My Logo</h3>}
+      sidebarMenuItems={sidebarMenuItems}
+    />
+  )
+}
+
+export default App
+```
+
+![Bare layout](/readme/img/sidebar_menu_items1.png "Topbar Logo")
+
+Now lets add a third menu option "Products" with two sub menus "Type 1" and "Type 2". For illustrative purpuses we make Users menu active:
+
+```js
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+
+// ...
+
+const sidebarMenuItems = [
+{
+  label: "Home",
+  icon: <HomeIcon />,
+  onClick: () => console.log('Home')
+},
+{
+  label: "Users",
+  icon: <SupervisorAccountIcon />,
+  onClick: () => console.log('Users'),
+  active: true
+},
+{
+  label: "Products",
+  icon: <ShoppingCartIcon />,
+  group: [
+    {
+      label: "Type 1",
+      icon: <LocalOfferIcon />,
+      onClick: () => console.log('Type 1 product')
+    },
+    {
+      label: "Type 2",
+      icon: <LocalOfferIcon />,
+      onClick: () => console.log('Type 2 product')
+    },
+  ]
+}
+
+// ...
+```
+
+![Bare layout](/readme/img/sidebar_menu_items2.png "Topbar Logo")
+
