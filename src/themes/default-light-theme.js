@@ -23,7 +23,7 @@ export const defaultLightTheme = {
     menuItemHoverColor: '#1871CA',
     iconColor: '#E4E6EB',
     iconSize: 24,
-    logoAlwaysVisible: true
+    logoAlwaysVisible: false
   },
 
   // Popup menus

@@ -8,7 +8,7 @@ The layout supports:
 -	A sidebar logo
 -	A topbar logo
 
-There are two predefined themes (a dark theme and a light one) for illustrative purposes. Feel free to create and use your own one with this theme template as a guide. Moreover, you can easily modify individual theme options through the **customize** prop.
+There are two predefined themes (a dark theme and a light one) for illustrative purposes. Feel free to create and use your own with this theme template as a guide. Moreover, you can easily modify individual theme options through the **customize** prop.
 
 ## Installation
 
@@ -26,7 +26,7 @@ The latest versions can be installed as follows:
 
 **npm**
 
-```shell
+```bash
 npm install react
 npm install react-dom
 npm install @mui/material
@@ -38,7 +38,7 @@ npm install @fontsource/roboto
 
 **yarn**
 
-```shell
+```bash
 yarn add react
 yarn add react-dom
 yarn add @mui/material
@@ -50,24 +50,24 @@ yarn add @fontsource/roboto
 
 @mui/material library is designed to use the **Roboto** font by default. You should import it in your app's entry point:
 
-```javascript
+```js
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 ```
 
-Finally, install react-sidebary-layout component itself:
+Finally, install react-sidebar-layout component itself:
 
 **npm**
 
-```shell
+```bash
 npm install @artibet/react-sidebar-layout
 ```
 
 **yarn**
 
-```shell
+```bash
 yarn add @artibet/react-sidebar-layout
 ```
 
@@ -75,17 +75,17 @@ yarn add @artibet/react-sidebar-layout
 
 ### Bare layout
 
-Create a brand new new react application. You can use classic npx or vite:
+Create a brand new new react application. You can use classic npx or vite (vite is used for these demo examples):
 
 **npx**
 
-```shell
+```bash
 npx create-react-app demo-app
 ```
 
 **vite**
 
-```
+```bash
 npm create vite demo-app
 ```
 
@@ -127,9 +127,54 @@ export default App
 
 Now run the application. The default theme is the **dark** one and you should see something like this:
 
+![Bare layout](/readme/img/bare_dark.png "Bare Layout")
 
+You can switch to the **light** default theme white the **theme** prop:
 
+```js
+<SidebarLayout
+  theme='light'
+/>
+```
 
+![Bare layout](/readme/img/bare_light.png "Bare Layout")
 
+This is the bare minimum of the layout. There is a sidebar area at the left, a logo area at the left top, a topbar area along the top and main content area. The default breakpoint is **sm** (small). Try to reduce the window size and observe the responsiveness of the layout.
 
+### Sidebar Logo
+
+Now lets add the application's logo. The layout component supports two kind of logos. One that is placed at the top of the sidebar (**sidebarLogo** prop) and one that is placed at the left side of the topbar (**topbarLogo** prop). The later is displayed normally when the screen size is bellow breakpoint but this behavior can be altered through props.
+
+The logo can be anything that react renders. For this demo purposes we use a simple h1 tag. A good design practice is to create the logo as a separate react component and pass it to SidebarLayout as prop:
+
+```js
+<SidebarLayout
+  sidebarLogo={<h1>My Logo</h1>}
+/>
+```
+
+![Bare layout](/readme/img/sidebar_logo.png "Sidebar Logo")
+
+The **sidebarLogo** prop can also be a function. In this case it gets an object of current sidebar theme values to help you customize the logo to fit the color scheme of the sidebar. For example:
+
+```js
+<SidebarLayout
+  sidebarLogo={(props) => <h1 style={{ color: props.textColor }}>My Logo</h1>}
+/>
+```
+
+The supported **sidebarLogo props** are:
+
+|Name |Type |Description  |
+|-----|-----|-------------|
+|sidebarWidth|number|The width of the sidebar|
+|textColor|string|The foreground color of the text at the sidebar|
+|backgroundColor|string|The background color of the sidebar|
+|iconColor|string|The color of the icons at the sidebar|
+|iconSize|number|The size of the icons at the sidebar|
+
+### Topbar Logo
+
+The react-sidebar-layout supports a logo at the topbar. Usually this logo is displayed only when the windows size is bellow breakpoint and it is an alternative to the applications logo (obviously it can be the same with smaller size and/or color).
+Lets create a smaller instance of the app's logo:
 
