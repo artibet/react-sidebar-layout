@@ -10,7 +10,7 @@ export const SidebarLayoutContext = React.createContext()
 
 export const SidebarLayout = ({
   children,
-  theme = 'light',
+  theme = 'dark',
   sidebarLogo,
   topbarLogo,
   sidebarMenuItems = [],
