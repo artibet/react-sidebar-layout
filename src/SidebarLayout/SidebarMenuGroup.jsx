@@ -1,7 +1,8 @@
 import React from 'react'
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { SidebarLayoutContext } from './SidebarLayout.jsx'
-import { MdExpandLess, MdExpandMore } from 'react-icons/md'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { SidebarMenuItem } from './SidebarMenuItem.jsx'
 
 export const SidebarMenuGroup = ({ menuGroup }) => {
@@ -53,7 +54,7 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
         onClick={handleClick}>
         <ListItemIcon sx={styles.listItemIcon}>{menuGroup.icon}</ListItemIcon>
         <ListItemText primary={menuGroup.label} />
-        {open ? <MdExpandLess size={`${theme.sidebar.iconSize}px`} /> : <MdExpandMore size={`${theme.sidebar.iconSize}px`} />}
+        {open ? <ExpandLessIcon size={`${theme.sidebar.iconSize}px`} /> : <ExpandMoreIcon size={`${theme.sidebar.iconSize}px`} />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>

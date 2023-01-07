@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material'
-import { MdMenu } from 'react-icons/md'
+import MenuIcon from '@mui/icons-material/Menu'
 import { SidebarLayoutContext } from './SidebarLayout.jsx'
 import { TopbarLogo } from './TopbarLogo.jsx'
 import { DropdownMenu } from '../DropdownMenu/DropdownMenu.jsx'
@@ -53,7 +53,7 @@ export const Topbar = () => {
 
               {/* Side bar toggle icon */}
               <IconButton sx={styles.menuIcon} onClick={toggleSidebar}>
-                <MdMenu size={theme.topbar.iconSize} />
+                <MenuIcon size={theme.topbar.iconSize} />
               </IconButton>
 
               {/* Logo */}

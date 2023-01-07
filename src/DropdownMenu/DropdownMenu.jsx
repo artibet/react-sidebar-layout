@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip } from '@mui/material'
 import { DropdownMenuItem } from './DropdownMenuItem.jsx'
 import { SidebarLayoutContext } from '../SidebarLayout/SidebarLayout.jsx'
-import { MdKeyboardArrowDown } from 'react-icons/md'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 
 export const DropdownMenu = ({ menu }) => {
 
@@ -41,13 +41,13 @@ export const DropdownMenu = ({ menu }) => {
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <ListItemIcon sx={{ fontSize: `${theme.topbar.iconSize}px`, color: theme.topbar.iconColor }}>{menu.icon}</ListItemIcon>
                   <ListItemText><Box sx={{ color: theme.topbar.textColor, fontSize: `${theme.topbar.textSize}px` }}>{menu.label}</Box></ListItemText>
-                  {menu.dropdownArrow && <MdKeyboardArrowDown size={theme.topbar.iconSize} />}
+                  {menu.dropdownArrow && <KeyboardArrowDownIcon size={theme.topbar.iconSize} />}
                 </Box>
               </MenuItem>
               : menu.label ?
                 <MenuItem onClick={handleOpenMenu}>
                   <Box sx={{ color: theme.topbar.textColor, fontSize: `${theme.topbar.textSize}px` }}>{menu.label}</Box>
-                  {menu.dropdownArrow && <MdKeyboardArrowDown size={theme.topbar.iconSize} />}
+                  {menu.dropdownArrow && <KeyboardArrowDownIcon size={theme.topbar.iconSize} />}
                 </MenuItem>
                 : <IconButton sx={{ fontSize: `${theme.topbar.iconSize}px`, color: theme.topbar.iconColor }} onClick={handleOpenMenu}>{menu.icon}</IconButton>
           }
