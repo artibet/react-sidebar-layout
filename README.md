@@ -231,8 +231,8 @@ To create sidebar menu items you must pass an array of objects into **sidebarMen
 |label|string||The displayed text|
 |icon|react component||The menu icon|
 |onClick|function||The action taken on menu click event|
-|hidden|boolean|false|When set to true the menu item is not visible|
-|active|boolean|false|When set to true the menu item is highlighted|
+|hidden|boolean or function|false|When set to true the menu item is not visible|
+|active|boolean or function|false|When set to true the menu item is highlighted|
 |group|array||An array of submenu items. The component supports only one grouping level|
 
 For example, let's create two menu items. One for Home and one for Users:
@@ -327,7 +327,7 @@ The supported key properties of these objects are the following:
 |label|string||The displayed text|
 |icon|react component||The menu icon|
 |onClick|function||The action taken on menu click event|
-|hidden|boolean|false|When set to true the menu item is not visible|
+|hidden|boolean or function|false|When set to true the menu item is not visible|
 |tooltip|string||A small text displayed on mouse hover|
 |group|array||An array of submenu items. The component supports only one grouping level|
 |dropdownArrow|boolean|false|If the group key is present it shows or hides the dropdown arrow icon|
