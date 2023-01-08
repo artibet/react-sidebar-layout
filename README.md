@@ -8,7 +8,7 @@ The layout supports:
 -	A sidebar logo
 -	A topbar logo
 
-There are two predefined themes (a dark theme and a light one) for illustrative purposes. Feel free to create and use your own with this theme template as a guide. Moreover, you can easily modify individual theme options through the **customize** prop.
+There are two predefined themes (a dark theme and a light one) for illustrative purposes. Feel free to create and use your own with this [theme template](./src/themes/default-dark-theme.js) as a guide. Moreover, you can easily modify individual theme options through the **customize** prop.
 
 ## Installation
 
@@ -129,7 +129,7 @@ Now run the application. The default theme is the **dark** one and you should se
 
 ![Bare layout](/readme/img/bare_dark.png "Bare Layout")
 
-You can switch to the **light** default theme white the **theme** prop:
+You can switch to the **light** default theme whith the **theme** prop:
 
 ```js
 <SidebarLayout
@@ -381,3 +381,45 @@ import LogoutIcon from '@mui/icons-material/Logout';
 ```
 
 ![Topbar Menu Items](/readme/img/topbar_menu_items1.png "Topbar Menu Items")
+
+Next, we add two simple options on the left of the avatar. "Contact Us" and "Links":
+
+```js
+const topbarMenuItems = [
+  {
+    label: 'Contact As',
+    onClick: () => console.log('Contact us')
+  },
+  {
+    label: 'Links',
+    onClick: () => console.log('Links')
+  },
+  {
+    icon: <Avatar />,
+    tooltip: "User menu",
+    group: [
+      {
+        label: 'Profile',
+        icon: <Person4Icon />,
+        onClick: () => console.log('Profile'),
+      },
+      {
+        label: 'Change Password',
+        icon: <VpnKeyIcon />,
+        onClick: () => console.log('Change Password'),
+      },
+      { divider: true },
+      {
+        label: 'Logout',
+        icon: <LogoutIcon />,
+        onClick: () => console.log('Logout'),
+      }
+    ]
+  },
+]
+```
+
+![Topbar Menu Items](/readme/img/topbar_menu_items2.png "Topbar Menu Items")
+
+## Tips
+

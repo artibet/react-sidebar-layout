@@ -3,8 +3,8 @@ export const defaultDarkTheme = {
   // sidebar 
   sidebar: {
     width: 250,
-    textColor: '#E2E4E8',//'#E4E6EB',
-    backgroundColor: '#323639', //'#18191A',
+    textColor: '#E2E4E8',
+    backgroundColor: '#323639',
     logoBorderBottom: '1px solid gray',
     menuItemBorderBottom: '1px solid gray',
     menuItemHoverColor: '#5F6368',
@@ -45,6 +45,5 @@ export const defaultDarkTheme = {
     backgroundColor: '#525659',
     padding: 20
   }
-
 
 }

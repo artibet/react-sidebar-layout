@@ -46,5 +46,4 @@ export const defaultLightTheme = {
     padding: 20
   }
 
-
 }
