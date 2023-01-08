@@ -75,7 +75,7 @@ yarn add @artibet/react-sidebar-layout
 
 ### Bare layout
 
-Create a brand new new react application. You can use classic npx or vite (vite is used for these demo examples):
+Create a brand new react application. You can use classic npx or vite (vite is used for these demo examples):
 
 **npx**
 
@@ -139,7 +139,7 @@ You can switch to the **light** default theme white the **theme** prop:
 
 ![Bare layout](/readme/img/bare_light.png "Bare Layout")
 
-This is the bare minimum of the layout. There is a sidebar area at the left, a logo area at the left top, a topbar area along the top and main content area. The default breakpoint is **sm** (small). Try to reduce the window size and observe the responsiveness of the layout.
+This is the bare minimum of the layout. There is a sidebar area at the left, a logo area at the left top, a topbar area along the top and the main content area. The default breakpoint is **sm** (small). Try to reduce the window size and observe the responsiveness of the layout.
 
 ### Sidebar Logo
 
@@ -153,7 +153,7 @@ The logo can be anything that react renders. For this demo purposes we use a sim
 />
 ```
 
-![Bare layout](/readme/img/sidebar_logo.png "Sidebar Logo")
+![Sidebar Logo](/readme/img/sidebar_logo.png "Sidebar Logo")
 
 The **sidebarLogo** prop can also be a function. In this case it gets an object of current sidebar theme values to help you customize the logo to fit the color scheme of the sidebar. For example:
 
@@ -187,7 +187,7 @@ Lets create a smaller instance of the app's logo:
 
 To see this logo shrink the screen to reach the default breakpoint (sm):
 
-![Bare layout](/readme/img/topbar_logo.png "Topbar Logo")
+![Topbar Logo](/readme/img/topbar_logo.png "Topbar Logo")
 
 Just like with **sidebarLogo** prop we can use a function that return the logo component:
 
@@ -220,7 +220,7 @@ If you want the topbar logo to be always visible you can either edit the respect
 />
 ```
 
-![Bare layout](/readme/img/topbar_logo_visible.png "Topbar Logo")
+![Topbar Logo Visibility](/readme/img/topbar_logo_visible.png "Topbar Logo Visibility")
 
 ### Sidebar Menu Items
 
@@ -270,7 +270,7 @@ function App() {
 export default App
 ```
 
-![Bare layout](/readme/img/sidebar_menu_items1.png "Topbar Logo")
+![Sidebar Menu Items](/readme/img/sidebar_menu_items1.png "Sidebar Menu Items")
 
 Now lets add a third menu option "Products" with two sub menus "Type 1" and "Type 2". For illustrative purpuses we make Users menu active:
 
@@ -312,5 +312,70 @@ const sidebarMenuItems = [
 // ...
 ```
 
-![Bare layout](/readme/img/sidebar_menu_items2.png "Topbar Logo")
+![Sidebar Menu Items](/readme/img/sidebar_menu_items2.png "Sidebar Menu Items")
 
+### Topbar Menu Items
+
+The topbar menu items are placed on far right side. They can be dropdown menus or simple click buttons. The procedure is similar to that of the sidebar's. We pass an array of objects into **topbarMenuItems** prop.
+
+The supported key properties of these objects are the following:
+
+|Name|Type|default|Description|
+|----|----|--------|-----------|
+|label|string||The displayed text|
+|icon|react component||The menu icon|
+|onClick|function||The action taken on menu click event|
+|hidden|boolean|false|When set to true the menu item is not visible|
+|tooltip|string||A small text displayed on mouse hover|
+|group|array||An array of submenu items. The component supports only one grouping level|
+|dropdownArrow|boolean|false|If the group key is present it shows or hides the dropdown arrow icon|
+|divider|boolean||If set to true and the object is part of a group then a divider line is rendered. The other keys are ignored|
+
+We will first create an account dropdown menu with an avatar and three options: "Profile", "Change Password" and "Logout". We also add a divider line before  "Logout":
+
+```js
+import { Avatar } from '@mui/material';
+import Person4Icon from '@mui/icons-material/Person4';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import LogoutIcon from '@mui/icons-material/Logout';
+
+// ...
+
+ const topbarMenuItems = [
+  {
+    icon: <Avatar />,
+    tooltip: 'Account Menu',
+    group: [
+      {
+        label: 'Profile',
+        icon: <Person4Icon />,
+        onClick: () => console.log('Profile'),
+      },
+      {
+        label: 'Change Password',
+        icon: <VpnKeyIcon />,
+        onClick: () => console.log('Change Password'),
+      },
+      { divider: true },
+      {
+        label: 'Logout',
+        icon: <LogoutIcon />,
+        onClick: () => console.log('Logout'),
+      }
+    ]
+  },
+]
+
+// ...
+
+<SidebarLayout
+  sidebarLogo={<h1>My Logo</h1>}
+  topbarLogo={<h3>My Logo</h3>}
+  sidebarMenuItems={sidebarMenuItems}
+  topbarMenuItems={topbarMenuItems}
+/>
+
+// ...
+```
+
+![Topbar Menu Items](/readme/img/topbar_menu_items1.png "Topbar Menu Items")
