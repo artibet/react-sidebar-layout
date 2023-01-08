@@ -33,7 +33,10 @@ export const DropdownMenu = ({ menu }) => {
   // JSX
   return (
     <Box>
-      <Tooltip title={menu.tooltip ? menu.tooltip : ''}>
+      <Tooltip
+        title={menu.tooltip ? menu.tooltip : ''}
+        placement="bottom-end"
+      >
         <Box>
           {
             menu.icon && menu.label ?
