@@ -12,7 +12,7 @@ There are two predefined themes (a dark theme and a light one) for illustrative 
 
 ## Installation
 
-**react-sidebar-layout** apart from react and react-dom, it uses @mui/material library components. The following list of packages are peer dependencies  and should be allready installed before installing the component:
+**react-sidebar-layout** apart from react and react-dom, it uses @mui/material library components. The following list of packages are peer dependencies  and should be already  installed before installing the component:
 
 - react >= 17.0.0
 - react-dom >= 17.0.0
@@ -71,7 +71,7 @@ npm install @artibet/react-sidebar-layout
 yarn add @artibet/react-sidebar-layout
 ```
 
-## Usage
+## Examples
 
 ### Bare layout
 
@@ -129,7 +129,7 @@ Now run the application. The default theme is the **dark** one and you should se
 
 ![Bare layout](/readme/img/bare_dark.png "Bare Layout")
 
-You can switch to the **light** default theme whith the **theme** prop:
+You can switch to the **light** default theme with the **theme** prop:
 
 ```js
 <SidebarLayout
@@ -143,7 +143,7 @@ This is the bare minimum of the layout. There is a sidebar area at the left, a l
 
 ### Sidebar Logo
 
-Now lets add the application's logo. The layout component supports two kind of logos. One that is placed at the top of the sidebar (**sidebarLogo** prop) and one that is placed at the left side of the topbar (**topbarLogo** prop). The later is displayed normally when the screen size is bellow breakpoint but this behavior can be altered through props.
+Now let's add the application's logo. The layout component supports two kind of logos. One that is placed at the top of the sidebar (**sidebarLogo** prop) and one that is placed at the left side of the topbar (**topbarLogo** prop). The latter is displayed normally when the screen size is bellow breakpoint but this behavior can be altered through props.
 
 The logo can be anything that react renders. For this demo purposes we use a simple h1 tag. A good design practice is to create the logo as a separate react component and pass it to SidebarLayout as prop:
 
@@ -176,7 +176,7 @@ The supported **sidebarLogo props** are:
 ### Topbar Logo
 
 The react-sidebar-layout supports a logo at the topbar. Usually this logo is displayed only when the windows size is bellow breakpoint and it is an alternative to the applications logo (obviously it can be the same with smaller size and/or color).
-Lets create a smaller instance of the app's logo:
+Let's create a smaller instance of the app's logo:
 
 ```js
 <SidebarLayout
@@ -235,7 +235,7 @@ To create sidebar menu items you must pass an array of objects into **sidebarMen
 |active|boolean|false|When set to true the menu item is highlighted|
 |group|array||An array of submenu items. The component supports only one grouping level|
 
-For example, lets create two menu items. One for Home and one for Users:
+For example, let's create two menu items. One for Home and one for Users:
 
 ```js
 import React from 'react'
@@ -273,7 +273,7 @@ export default App
 
 ![Sidebar Menu Items](/readme/img/sidebar_menu_items1.png "Sidebar Menu Items")
 
-Now lets add a third menu option "Products" with two sub menus "Type 1" and "Type 2". For illustrative purpuses we make Users menu active:
+Now let's add a third menu option "Products" with two sub menus "Type 1" and "Type 2". For illustrative purposes we make Users menu active:
 
 ```js
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -333,7 +333,7 @@ The supported key properties of these objects are the following:
 |dropdownArrow|boolean|false|If the group key is present it shows or hides the dropdown arrow icon|
 |divider|boolean||If set to true and the object is part of a group then a divider line is rendered. The other keys are ignored|
 
-We will first create an account dropdown menu with an avatar and three options: "Profile", "Change Password" and "Logout". We also add a divider line before  "Logout":
+We will first create an account dropdown menu with an avatar and three options: "Profile", "Change Password" and "Logout". We also add a divider line before "Logout":
 
 ```js
 import { Avatar } from '@mui/material';
