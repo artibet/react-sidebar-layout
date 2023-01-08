@@ -267,6 +267,7 @@ function App() {
   )
 }
 
+
 export default App
 ```
 
@@ -281,33 +282,34 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 // ...
 
 const sidebarMenuItems = [
-{
-  label: "Home",
-  icon: <HomeIcon />,
-  onClick: () => console.log('Home')
-},
-{
-  label: "Users",
-  icon: <SupervisorAccountIcon />,
-  onClick: () => console.log('Users'),
-  active: true
-},
-{
-  label: "Products",
-  icon: <ShoppingCartIcon />,
-  group: [
-    {
-      label: "Type 1",
-      icon: <LocalOfferIcon />,
-      onClick: () => console.log('Type 1 product')
-    },
-    {
-      label: "Type 2",
-      icon: <LocalOfferIcon />,
-      onClick: () => console.log('Type 2 product')
-    },
-  ]
-}
+  {
+    label: "Home",
+    icon: <HomeIcon />,
+    onClick: () => console.log('Home')
+  },
+  {
+    label: "Users",
+    icon: <SupervisorAccountIcon />,
+    onClick: () => console.log('Users'),
+    active: true
+  },
+  {
+    label: "Products",
+    icon: <ShoppingCartIcon />,
+    group: [
+      {
+        label: "Type 1",
+        icon: <LocalOfferIcon />,
+        onClick: () => console.log('Type 1 product')
+      },
+      {
+        label: "Type 2",
+        icon: <LocalOfferIcon />,
+        onClick: () => console.log('Type 2 product')
+      },
+    ]
+  }
+]
 
 // ...
 ```
