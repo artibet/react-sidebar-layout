@@ -15,6 +15,7 @@ export const SidebarLayout = ({
   topbarLogo,
   sidebarMenuItems = [],
   topbarMenuItems = [],
+  footer,
   customize,
 }) => {
 
@@ -125,7 +126,16 @@ export const SidebarLayout = ({
           backgroundColor: 'backgroundColor' in customize.mainContent ? customize.mainContent.backgroundColor : selectedTheme.mainContent.backgroundColor,
           padding: 'padding' in customize.mainContent ? customize.mainContent.padding : selectedTheme.mainContent.padding,
         }
-        : selectedTheme.mainContent
+        : selectedTheme.mainContent,
+
+      footer: Boolean(customize) && 'footer' in customize
+        ? {
+          height: 'height' in customize.footer ? customize.footer.height : selectedTheme.footer.height,
+          padding: 'padding' in customize.footer ? customize.footer.padding : selectedTheme.footer.padding,
+          textColor: 'textColor' in customize.footer ? customize.footer.textColor : selectedTheme.footer.textColor,
+          backgroundColor: 'backgroundColor' in customize.footer ? customize.footer.backgroundColor : selectedTheme.footer.backgroundColor,
+        }
+        : selectedTheme.footer
     }
 
   }
@@ -140,11 +150,23 @@ export const SidebarLayout = ({
     mainContent: {
       marginTop: `${topbarHeight}px`,
       marginLeft: isAboveBreakpoint ? `${context.theme.sidebar.width}px` : '0px',
-      minHeight: `calc(100vh - ${topbarHeight + context.theme.mainContent.padding * 2}px)`,
-      minWidth: isAboveBreakpoint ? `calc(100vw - ${context.theme.sidebar.width + context.theme.mainContent.padding * 2}px - (100vw - 100%))` : `calc(100vw - ${context.theme.mainContent.padding * 2}px - (100vw - 100%))`,
+      minHeight: `calc(100vh - ${topbarHeight}px)`,
+      minWidth: isAboveBreakpoint ? `calc(100vw - ${context.theme.sidebar.width}px - (100vw - 100%))` : `calc(100vw - (100vw - 100%))`,
       color: context.theme.mainContent.textColor,
       backgroundColor: context.theme.mainContent.backgroundColor,
+      padding: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    },
+    page: {
       padding: `${context.theme.mainContent.padding}px`,
+    },
+    footer: {
+      height: context.theme.footer.height,
+      backgroundColor: context.theme.footer.backgroundColor,
+      color: context.theme.footer.textColor,
+      padding: `${context.theme.footer.padding}px`
     }
   }
 
@@ -163,8 +185,21 @@ export const SidebarLayout = ({
 
         {/* main Content */}
         <Box sx={styles.mainContent}>
-          {children}
+
+          {/*  page content */}
+          <Box sx={styles.page}>
+            {children}
+          </Box>
+
+          {/* Footer (if any) */}
+          {footer &&
+            <Box sx={styles.footer}>
+              {footer}
+            </Box>
+          }
         </Box>
+
+
       </Box>
     </SidebarLayoutContext.Provider >
   )

@@ -44,6 +44,14 @@ export const defaultDarkTheme = {
     textColor: '#E4E6EB',
     backgroundColor: '#525659',
     padding: 20
+  },
+
+  // footer
+  footer: {
+    height: '64px',
+    padding: '20px',
+    textColor: '#E4E6EB',
+    backgroundColor: '#323639',
   }
 
 }

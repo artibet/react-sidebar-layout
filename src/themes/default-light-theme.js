@@ -44,6 +44,15 @@ export const defaultLightTheme = {
     textColor: 'black',
     backgroundColor: 'white',
     padding: 20
+  },
+
+  // footer
+  footer: {
+    height: '64px',
+    padding: '20px',
+    textColor: '#FFFFFF',
+    backgroundColor: '#1976D2',
   }
+
 
 }
