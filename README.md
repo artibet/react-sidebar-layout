@@ -151,7 +151,7 @@ There is also an optional **footer** that you can add to the layout:
 ![Footer](/readme/img/footer.png "Footer")
 
 
-The **footer** prop accepts a react component or a function that return a react component. This function gets an object with the following keys that can be used to customize our footer:
+The **footer** prop accepts a react component or a function that return a react component. This function gets an object with the following keys that can be used to customize the footer:
 
 |Name |Type |Description  |
 |-----|-----|-------------|
@@ -226,7 +226,7 @@ The supported **topbarLogo props** are:
 |iconColor|string|The color of the icons at the topbar|
 |iconSize|number|The size of the icons at the topbar|
 
-If you want the topbar logo to be always visible you can either edit the respective option in the theme file or set it with the **customize** prop (for a full list of supported props and theme values see the API section):
+If you want the topbar logo to be always visible you can either edit the respective option in the theme file or set it with the **customize** prop:
 
 ```js
 <SidebarLayout
@@ -441,5 +441,43 @@ const topbarMenuItems = [
 
 ![Topbar Menu Items](/readme/img/topbar_menu_items2.png "Topbar Menu Items")
 
-## Tips
+
+## API
+
+### SidebarLayout props
+
+|Name|Type|default|Description|
+|----|----|--------|-----------|
+|theme|string or object|'dark'|The theme for the layout|
+|sidebarLogo|react component||The sidebar logo|
+|topbarLogo|react component||The topbar logo|
+|sidebarMenuItems|array||The menu items on the sidebar|
+|topbarMenuItems|array||The menu items on the topbar|
+|footer|react component||The footer of the layout|
+|customize|object||Customize particular theme values|
+
+The customize prop supports the following keys:
+- sidebar
+- topbar
+- popupMenu
+- mainContent
+- footer
+
+Each key is in turn an object corresponding to the key of the [theme template](./src/themes/default-dark-theme.js). 
+
+### Hooks
+
+#### useSidebarLayoutContext
+This hook exports the following properties that you can use to customize the main content of your application:
+
+|Name|Type|Description|
+|----|----|-----------|
+|theme|object|The active theme properties as described into [theme template](./src/themes/default-dark-theme.js)|
+|muiTheme|object|The Material UI theme properties|
+|topbarHeight|number|The height of the topbar in pixels. It changes dynamically on breakpoint|
+|isSidebarOpen|boolean|When the screen size is bellow breakpoint it shows if the sidebar is temporary visible or not|
+|isAboveBreakpoint|boolean|If true the screen size is large enough and the sidebar is visible otherwise is hidden|
+
+
+
 
