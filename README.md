@@ -139,7 +139,7 @@ You can switch to the **light** default theme with the **theme** prop:
 
 ![Bare layout](/readme/img/bare_light.png "Bare Layout")
 
-This is the bare minimum of the layout. There is a sidebar area at the left, a logo area at the left top, a topbar area along the top and the main content area. The default breakpoint is **sm** (small). Try to reduce the window size and observe the responsiveness of the layout.
+This is the bare minimum of the layout. There is a sidebar area on the left, a logo area on the left top, a topbar area along the top and the main content area. The default breakpoint is **sm** (small). Try to reduce the window size and observe the responsiveness of the layout.
 There is also an optional **footer** that you can add to the layout:
 
 ```js
