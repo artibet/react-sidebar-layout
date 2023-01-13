@@ -49,7 +49,7 @@ export const defaultLightTheme = {
   // footer
   footer: {
     height: 56,
-    padding: 20,
+    padding: 0,
     textColor: '#FFFFFF',
     textSize: 16,
     backgroundColor: '#1976D2',

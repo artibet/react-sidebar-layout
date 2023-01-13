@@ -49,7 +49,7 @@ export const defaultDarkTheme = {
   // footer
   footer: {
     height: 56,
-    padding: 20,
+    padding: 0,
     textColor: '#E4E6EB',
     textSize: 24,
     backgroundColor: '#323639',
