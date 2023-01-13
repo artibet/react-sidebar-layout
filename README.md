@@ -140,6 +140,26 @@ You can switch to the **light** default theme with the **theme** prop:
 ![Bare layout](/readme/img/bare_light.png "Bare Layout")
 
 This is the bare minimum of the layout. There is a sidebar area at the left, a logo area at the left top, a topbar area along the top and the main content area. The default breakpoint is **sm** (small). Try to reduce the window size and observe the responsiveness of the layout.
+There is also an optional **footer** that you can add to the layout:
+
+```js
+<SidebarLayout
+  theme='dark'
+  footer={<div />}
+/>
+```
+![Footer](/readme/img/footer.png "Footer")
+
+
+The **footer** prop accepts a react component or a function that return a react component. This function gets an object with the following keys that can be used to customize our footer:
+
+|Name |Type |Description  |
+|-----|-----|-------------|
+|height|number|The height of the footer in pixels|
+|padding|number|The padding of the footer is pixes|
+|textColor|string|The forground color of the thext on the footer|
+|textSize|number|The font size in pixels|
+|backgroundColor|string|The background color of the footer|
 
 ### Sidebar Logo
 

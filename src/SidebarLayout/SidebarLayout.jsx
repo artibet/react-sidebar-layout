@@ -4,6 +4,7 @@ import { Topbar } from './Topbar.jsx'
 import { Sidebar } from './Sidebar.jsx'
 import { defaultDarkTheme } from '../themes/default-dark-theme.js'
 import { defaultLightTheme } from '../themes/default-light-theme.js'
+import { Footer } from './Footer.jsx'
 
 // SidebarLayout Context
 export const SidebarLayoutContext = React.createContext()
@@ -76,6 +77,7 @@ export const SidebarLayout = ({
     muiTheme,
     sidebarLogo,
     topbarLogo,
+    footer,
 
     theme: {
       sidebar: Boolean(customize) && 'sidebar' in customize
@@ -133,6 +135,7 @@ export const SidebarLayout = ({
           height: 'height' in customize.footer ? customize.footer.height : selectedTheme.footer.height,
           padding: 'padding' in customize.footer ? customize.footer.padding : selectedTheme.footer.padding,
           textColor: 'textColor' in customize.footer ? customize.footer.textColor : selectedTheme.footer.textColor,
+          textSize: 'textSize' in customize.footer ? customize.footer.textSize : selectedTheme.footer.textSize,
           backgroundColor: 'backgroundColor' in customize.footer ? customize.footer.backgroundColor : selectedTheme.footer.backgroundColor,
         }
         : selectedTheme.footer
@@ -162,12 +165,6 @@ export const SidebarLayout = ({
     page: {
       padding: `${context.theme.mainContent.padding}px`,
     },
-    footer: {
-      height: context.theme.footer.height,
-      backgroundColor: context.theme.footer.backgroundColor,
-      color: context.theme.footer.textColor,
-      padding: `${context.theme.footer.padding}px`
-    }
   }
 
   // ---------------------------------------------------------------
@@ -192,13 +189,9 @@ export const SidebarLayout = ({
           </Box>
 
           {/* Footer (if any) */}
-          {footer &&
-            <Box sx={styles.footer}>
-              {footer}
-            </Box>
-          }
-        </Box>
+          {footer && <Footer />}
 
+        </Box>
 
       </Box>
     </SidebarLayoutContext.Provider >
