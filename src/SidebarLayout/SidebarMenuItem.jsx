@@ -17,20 +17,31 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
 
   // STYLE
   const isActive = typeof menuItem.active === 'function' ? menuItem.active() : Boolean(menuItem.active)
-  const style = {
-    borderBottom: theme.sidebar.menuItemBorderBottom,
-    pl: inGroup ? 4 : '',
-    color: isActive ? theme.sidebar.menuItemActiveTextColor : '',
-    backgroundColor: isActive ? theme.sidebar.menuItemActiveBackgroundColor : '',
-    "&:hover": { backgroundColor: theme.sidebar.menuItemHoverColor }
+  const styles = {
+    listItemButton: {
+      borderBottom: theme.sidebar.menuItemBorderBottom,
+      pl: inGroup ? 4 : '',
+      color: isActive ? theme.sidebar.menuItemActiveTextColor : '',
+      backgroundColor: isActive ? theme.sidebar.menuItemActiveBackgroundColor : '',
+      "&:hover": { backgroundColor: theme.sidebar.menuItemHoverColor }
+    },
+    listItemIcon: {
+      color: theme.sidebar.iconColor,
+      fontSize: `${theme.sidebar.iconSize}px`
+    },
+    listItemText: {
+      fontSize: `${theme.sidebar.textSize}px`
+    }
   }
 
   // JSX
   return (
-    <ListItemButton sx={style} onClick={menuItem.onClick}
+    <ListItemButton sx={styles.listItemButton} onClick={menuItem.onClick}
     >
-      <ListItemIcon sx={{ color: theme.sidebar.iconColor, fontSize: `${theme.sidebar.iconSize}px` }}>{menuItem.icon}</ListItemIcon>
-      <ListItemText primary={menuItem.label} />
+      <ListItemIcon sx={styles.listItemIcon}>{menuItem.icon}</ListItemIcon>
+      <ListItemText
+        primaryTypographyProps={styles.listItemText}
+        primary={menuItem.label} />
     </ListItemButton >
 
   )

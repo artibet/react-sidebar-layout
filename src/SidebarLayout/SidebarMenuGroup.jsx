@@ -43,6 +43,9 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     listItemIcon: {
       color: theme.sidebar.iconColor,
       fontSize: `${theme.sidebar.iconSize}px`
+    },
+    listItemText: {
+      fontSize: `${theme.sidebar.textSize}px`
     }
   }
 
@@ -53,7 +56,7 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
         sx={styles.listItemButton}
         onClick={handleClick}>
         <ListItemIcon sx={styles.listItemIcon}>{menuGroup.icon}</ListItemIcon>
-        <ListItemText primary={menuGroup.label} />
+        <ListItemText primaryTypographyProps={styles.listItemText} primary={menuGroup.label} />
         {open ? <ExpandLessIcon size={`${theme.sidebar.iconSize}px`} /> : <ExpandMoreIcon size={`${theme.sidebar.iconSize}px`} />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>

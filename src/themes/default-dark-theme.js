@@ -4,6 +4,7 @@ export const defaultDarkTheme = {
   sidebar: {
     width: 250,
     textColor: '#E2E4E8',
+    textSize: 16,
     backgroundColor: '#323639',
     logoBorderBottom: '1px solid gray',
     menuItemBorderBottom: '1px solid gray',
@@ -11,7 +12,7 @@ export const defaultDarkTheme = {
     menuItemActiveBackgroundColor: '#2E89FF',
     menuItemActiveTextColor: '#E4E6EB',
     iconColor: '#E4E6EB',
-    iconSize: 24,
+    iconSize: 22,
     breakpoint: 'sm',
   },
 
@@ -22,7 +23,7 @@ export const defaultDarkTheme = {
     backgroundColor: '#323639',
     menuItemHoverColor: '#5F6368',
     iconColor: '#E4E6EB',
-    iconSize: 24,
+    iconSize: 22,
     logoAlwaysVisible: false
   },
 
