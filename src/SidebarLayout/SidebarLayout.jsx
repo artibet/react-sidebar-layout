@@ -93,6 +93,7 @@ export const SidebarLayout = ({
           menuItemActiveTextColor: 'menuItemActiveTextColor' in customize.sidebar ? customize.sidebar.menuItemActiveTextColor : selectedTheme.sidebar.menuItemActiveTextColor,
           iconColor: 'iconColor' in customize.sidebar ? customize.sidebar.iconColor : selectedTheme.sidebar.iconColor,
           iconSize: 'iconSize' in customize.sidebar ? customize.sidebar.iconSize : selectedTheme.sidebar.iconSize,
+          iconMinWidth: 'iconMinWidth' in customize.sidebar ? customize.sidebar.iconMinWidth : selectedTheme.sidebar.iconMinWidth,
           breakpoint: 'breakpoint' in customize.sidebar ? customize.sidebar.breakpoint : selectedTheme.sidebar.breakpoint,
         }
         : selectedTheme.sidebar,

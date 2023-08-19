@@ -13,6 +13,7 @@ export const defaultLightTheme = {
     menuItemActiveTextColor: '#F9FBFE',
     iconColor: '#F9FBFE',
     iconSize: 22,
+    iconMinWidth: 30,
     breakpoint: 'sm',
   },
 
