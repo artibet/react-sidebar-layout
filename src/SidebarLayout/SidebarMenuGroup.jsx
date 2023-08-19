@@ -42,7 +42,8 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     },
     listItemIcon: {
       color: theme.sidebar.iconColor,
-      fontSize: `${theme.sidebar.iconSize}px`
+      fontSize: `${theme.sidebar.iconSize}px`,
+      minWidth: `${theme.sidebar.iconMinWidth}px`,
     },
     listItemText: {
       fontSize: `${theme.sidebar.textSize}px`
