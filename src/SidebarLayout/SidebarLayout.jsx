@@ -25,6 +25,7 @@ export const SidebarLayout = ({
   // ---------------------------------------------------------------
   const [topbarHeight, setTopbarHeight] = React.useState()  // current toolbar's height
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false) // On small screens
+  const [activeGroup, setActiveGroup] = React.useState(null)  // The one and only opened group
 
   // Get selected theme
   const getThemeFromDescription = (themeDescription => {
@@ -78,6 +79,8 @@ export const SidebarLayout = ({
     sidebarLogo,
     topbarLogo,
     footer,
+    activeGroup,
+    setActiveGroup,
 
     theme: {
       sidebar: Boolean(customize) && 'sidebar' in customize
@@ -95,6 +98,11 @@ export const SidebarLayout = ({
           iconSize: 'iconSize' in customize.sidebar ? customize.sidebar.iconSize : selectedTheme.sidebar.iconSize,
           iconMinWidth: 'iconMinWidth' in customize.sidebar ? customize.sidebar.iconMinWidth : selectedTheme.sidebar.iconMinWidth,
           breakpoint: 'breakpoint' in customize.sidebar ? customize.sidebar.breakpoint : selectedTheme.sidebar.breakpoint,
+          groupItemBorderBottom: 'groupItemBorderBottom' in customize.sidebar ? customize.sidebar.groupItemBorderBottom : selectedTheme.sidebar.groupItemBorderBottom,
+          groupItemHoverColor: 'groupItemHoverColor' in customize.sidebar ? customize.sidebar.groupItemHoverColor : selectedTheme.sidebar.groupItemHoverColor,
+          groupItemActiveBackgroundColor: 'groupItemActiveBackgroundColor' in customize.sidebar ? customize.sidebar.groupItemActiveBackgroundColor : selectedTheme.sidebar.groupItemActiveBackgroundColor,
+          groupItemActiveTextColor: 'groupItemActiveTextColor' in customize.sidebar ? customize.sidebar.groupItemActiveTextColor : selectedTheme.sidebar.groupItemActiveTextColor,
+          groupBackgroundColor: 'groupBackgroundColor' in customize.sidebar ? customize.sidebar.groupBackgroundColor : selectedTheme.sidebar.groupBackgroundColor,
         }
         : selectedTheme.sidebar,
 

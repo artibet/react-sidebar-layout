@@ -15,6 +15,11 @@ export const defaultLightTheme = {
     iconSize: 22,
     iconMinWidth: 30,
     breakpoint: 'sm',
+    groupItemBorderBottom: '1px solid #999999',
+    groupItemHoverColor: '#1871CA',
+    groupItemActiveBackgroundColor: '#DD5701',
+    groupItemActiveTextColor: '#F9FBFE',
+    groupBackgroundColor: '#1976D2'   // background color of group items when it's open
   },
 
   // topbar

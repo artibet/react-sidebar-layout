@@ -15,6 +15,11 @@ export const defaultDarkTheme = {
     iconSize: 22,
     iconMinWidth: 30,
     breakpoint: 'sm',
+    groupItemBorderBottom: '1px solid gray',
+    groupItemHoverColor: '#5F6368',
+    groupItemActiveBackgroundColor: '#2E89FF',
+    groupItemActiveTextColor: '#E4E6EB',
+    groupBackgroundColor: '#323639'   // background color of group items when it's open
   },
 
   // topbar

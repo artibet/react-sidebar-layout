@@ -1,5 +1,5 @@
 import React from 'react'
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { Box, Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { SidebarLayoutContext } from './SidebarLayout.jsx'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -11,21 +11,27 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // SidebarLayoutContext data
   // ---------------------------------------------------------------
   const {
+    activeGroup,
+    setActiveGroup,
     theme
   } = React.useContext(SidebarLayoutContext)
 
   // ---------------------------------------------------------------
-  // Local state
+  // open flag
   // ---------------------------------------------------------------
-  const [open, setOpen] = React.useState(false)
+  const open = React.useMemo(() => {
+    return activeGroup === menuGroup
+  }, [activeGroup])
 
   // set open state on mount
   React.useEffect(() => {
     if (!Array.isArray(menuGroup.group)) return
     menuGroup.group.forEach(item => {
       const isActive = typeof item.active === 'function' ? item.active() : Boolean(item.active)
-      if (isActive) setOpen(true)
-      return
+      if (isActive) {
+        setActiveGroup(menuGroup)
+        return
+      }
     })
   }, [])
 
@@ -34,7 +40,8 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // ---------------------------------------------------------------
   const handleClick = (e) => {
     e.stopPropagation()
-    setOpen(!open)
+    // setOpen(!open)
+    setActiveGroup(open ? null : menuGroup)
   }
 
   // If menuGroup.group is not an array do not render
@@ -47,8 +54,10 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // STYLE
   const styles = {
     listItemButton: {
-      borderBottom: theme.sidebar.menuItemBorderBottom,
-      "&:hover": { backgroundColor: theme.sidebar.menuItemHoverColor }
+      color: open ? theme.sidebar.groupItemActiveTextColor : '',
+      backgroundColor: open ? theme.sidebar.groupItemActiveBackgroundColor : '',
+      borderBottom: theme.sidebar.groupItemBorderBottom,
+      "&:hover": { backgroundColor: theme.sidebar.groupItemHoverColor }
     },
     listItemIcon: {
       color: theme.sidebar.iconColor,
@@ -57,12 +66,15 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     },
     listItemText: {
       fontSize: `${theme.sidebar.textSize}px`
+    },
+    groupItems: {
+      backgroundColor: `${theme.sidebar.groupBackgroundColor}`
     }
   }
 
   // JSX
   return (
-    <>
+    <Box>
       <ListItemButton
         sx={styles.listItemButton}
         onClick={handleClick}>
@@ -70,13 +82,15 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
         <ListItemText primaryTypographyProps={styles.listItemText} primary={menuGroup.label} />
         {open ? <ExpandLessIcon size={`${theme.sidebar.iconSize}px`} /> : <ExpandMoreIcon size={`${theme.sidebar.iconSize}px`} />}
       </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {
-            menuGroup.group.map((item, index) => <SidebarMenuItem menuItem={item} inGroup={true} key={index} />)
-          }
-        </List>
-      </Collapse>
-    </>
+      <Box sx={styles.groupItems}>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {
+              menuGroup.group.map((item, index) => <SidebarMenuItem menuItem={item} inGroup={true} key={index} />)
+            }
+          </List>
+        </Collapse>
+      </Box>
+    </Box>
   )
 }
