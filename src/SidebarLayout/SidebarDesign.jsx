@@ -18,10 +18,25 @@ export const SidebarDesign = () => {
     sidebarMenuItems,
   } = React.useContext(SidebarLayoutContext)
 
+  // ---------------------------------------------------------------------------------------
+  // styles
+  // ---------------------------------------------------------------------------------------
+  const styles = {
+    sidebar: {
+      '&::MsOverflowStyle': 'none',
+      scrollbarWidth: 'none',
+      overflowY: 'scroll',
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      }
+    }
+  }
 
+  // ---------------------------------------------------------------------------------------
   // JSX
+  // ---------------------------------------------------------------------------------------
   return (
-    <Box>
+    <Box sx={styles.sidebar}>
 
       {/* Logo */}
       {sidebarLogo !== null ? <SidebarLogo /> : null}
