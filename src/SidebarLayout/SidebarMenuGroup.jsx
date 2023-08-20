@@ -16,12 +16,36 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     theme
   } = React.useContext(SidebarLayoutContext)
 
+  // ---------------------------------------------------------------------------------------
+  // State
+  // ---------------------------------------------------------------------------------------
+  const [hover, setHover] = React.useState(false)
+
   // ---------------------------------------------------------------
-  // open flag
+  // open and hidden flag
   // ---------------------------------------------------------------
   const open = React.useMemo(() => {
     return activeGroup === menuGroup
   }, [activeGroup])
+
+  const hidden = React.useMemo(() => {
+    return typeof menuGroup.hidden === 'function' ? menuGroup.hidden() : Boolean(menuGroup.hidden)
+  }, [menuGroup])
+
+  // ---------------------------------------------------------------------------------------
+  // ListItem colors 
+  // ---------------------------------------------------------------------------------------
+  const listItemBackgroundColor = React.useMemo(() => {
+    if (hover) {
+      return theme.sidebar.groupItemHoverBackgroundColor
+    }
+    if (open) {
+      return theme.sidebar.groupItemActiveBackgroundColor
+    }
+    return '' // default
+  }, [menuGroup])
+
+
 
   // set open state on mount
   React.useEffect(() => {
@@ -48,23 +72,21 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   if (!Array.isArray(menuGroup.group)) return null
 
   // Check if is hidden
-  const hidden = typeof menuGroup.hidden === 'function' ? menuGroup.hidden() : Boolean(menuGroup.hidden)
   if (hidden) return null
 
   // STYLE
   const styles = {
     listItemButton: {
-      color: open ? theme.sidebar.groupItemActiveTextColor : '',
-      backgroundColor: open ? theme.sidebar.groupItemActiveBackgroundColor : '',
+      backgroundColor: listItemBackgroundColor,
       borderBottom: theme.sidebar.groupItemBorderBottom,
-      "&:hover": { backgroundColor: theme.sidebar.groupItemHoverColor }
     },
     listItemIcon: {
-      color: theme.sidebar.iconColor,
+      color: hover ? theme.sidebar.iconHoverColor : open ? theme.sidebar.iconActiveColor : theme.sidebar.iconColor,
       fontSize: `${theme.sidebar.iconSize}px`,
       minWidth: `${theme.sidebar.iconMinWidth}px`,
     },
     listItemText: {
+      color: hover ? theme.sidebar.groupItemHoverColor : open ? theme.sidebar.groupItemActiveTextColor : '',
       fontSize: `${theme.sidebar.textSize}px`
     },
     groupItems: {
@@ -74,7 +96,7 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
 
   // JSX
   return (
-    <Box>
+    <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <ListItemButton
         sx={styles.listItemButton}
         onClick={handleClick}>
