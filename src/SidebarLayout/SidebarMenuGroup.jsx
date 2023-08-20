@@ -19,6 +19,16 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // ---------------------------------------------------------------
   const [open, setOpen] = React.useState(false)
 
+  // set open state on mount
+  React.useEffect(() => {
+    if (!Array.isArray(menuGroup.group)) return
+    menuGroup.group.forEach(item => {
+      const isActive = typeof item.active === 'function' ? item.active() : Boolean(item.active)
+      if (isActive) setOpen(true)
+      return
+    })
+  }, [])
+
   // ---------------------------------------------------------------
   // Handle group item click
   // ---------------------------------------------------------------
