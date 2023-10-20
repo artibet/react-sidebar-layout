@@ -12,6 +12,7 @@ export const SidebarLayoutContext = React.createContext()
 export const SidebarLayout = ({
   children,
   theme = 'dark',
+  singleGroupOpen = true,   // One group open at a time
   sidebarLogo,
   topbarLogo,
   sidebarMenuItems = [],
@@ -79,6 +80,7 @@ export const SidebarLayout = ({
     sidebarLogo,
     topbarLogo,
     footer,
+    singleGroupOpen,
     activeGroup,
     setActiveGroup,
 

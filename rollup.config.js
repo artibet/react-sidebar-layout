@@ -2,7 +2,8 @@ import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
+import postcss from 'rollup-plugin-postcss'
 
 export default {
   input: "src/index.js",
@@ -32,6 +33,9 @@ export default {
       exclude: ["node_modules/**", "dist/**"]
     }),
     commonjs(),
-    terser()
+    terser(),
+    postcss({
+      extensions: ['.css']
+    })
   ]
 }

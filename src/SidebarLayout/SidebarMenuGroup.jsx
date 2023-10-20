@@ -13,21 +13,19 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   const {
     activeGroup,
     setActiveGroup,
-    theme
+    theme,
+    singleGroupOpen
   } = React.useContext(SidebarLayoutContext)
 
   // ---------------------------------------------------------------------------------------
   // State
   // ---------------------------------------------------------------------------------------
   const [hover, setHover] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
-  // ---------------------------------------------------------------
-  // open and hidden flag
-  // ---------------------------------------------------------------
-  const open = React.useMemo(() => {
-    return activeGroup === menuGroup
-  }, [activeGroup])
-
+  // ---------------------------------------------------------------------------------------
+  // Hidden state
+  // ---------------------------------------------------------------------------------------
   const hidden = React.useMemo(() => {
     return typeof menuGroup.hidden === 'function' ? menuGroup.hidden() : Boolean(menuGroup.hidden)
   }, [menuGroup])
@@ -45,36 +43,50 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     return '' // default
   }, [menuGroup])
 
-
-
-  // set open state on mount
+  // ---------------------------------------------------------------------------------------
+  // Set open state on mount
+  // ---------------------------------------------------------------------------------------
   React.useEffect(() => {
     if (!Array.isArray(menuGroup.group)) return
     menuGroup.group.forEach(item => {
       const isActive = typeof item.active === 'function' ? item.active() : Boolean(item.active)
       if (isActive) {
-        setActiveGroup(menuGroup)
+        setOpen(true)
+        if (singleGroupOpen) setActiveGroup(menuGroup)
         return
       }
     })
   }, [])
 
-  // ---------------------------------------------------------------
-  // Handle group item click
-  // ---------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------
+  // If active group changes and it's not this
+  // ---------------------------------------------------------------------------------------
+  React.useEffect(() => {
+    if (singleGroupOpen) {
+      if (activeGroup === menuGroup) {
+        setOpen(true)
+      }
+      else {
+        setOpen(false)
+      }
+    }
+  }, [activeGroup])
+
+  // ---------------------------------------------------------------------------------------
+  // Handle click on group lable
+  // ---------------------------------------------------------------------------------------
   const handleClick = (e) => {
     e.stopPropagation()
-    // setOpen(!open)
-    setActiveGroup(open ? null : menuGroup)
+    const newState = !open
+    setOpen(newState)
+    if (singleGroupOpen) {
+      setActiveGroup(newState ? menuGroup : null)
+    }
   }
 
-  // If menuGroup.group is not an array do not render
-  if (!Array.isArray(menuGroup.group)) return null
-
-  // Check if is hidden
-  if (hidden) return null
-
+  // ---------------------------------------------------------------------------------------
   // STYLE
+  // ---------------------------------------------------------------------------------------
   const styles = {
     listItemButton: {
       backgroundColor: listItemBackgroundColor,
@@ -94,7 +106,17 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     }
   }
 
+  // ---------------------------------------------------------------------------------------
   // JSX
+  // ---------------------------------------------------------------------------------------
+
+  // If menuGroup.group is not an array do not render
+  if (!Array.isArray(menuGroup.group)) return null
+
+  // Check if is hidden
+  if (hidden) return null
+
+  // render
   return (
     <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <ListItemButton
