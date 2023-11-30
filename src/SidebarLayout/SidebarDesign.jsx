@@ -16,6 +16,7 @@ export const SidebarDesign = () => {
     sidebarLogo,
     muiTheme,
     sidebarMenuItems,
+    sidebarFooter,
   } = React.useContext(SidebarLayoutContext)
 
   // ---------------------------------------------------------------------------------------
@@ -36,26 +37,34 @@ export const SidebarDesign = () => {
   // JSX
   // ---------------------------------------------------------------------------------------
   return (
-    <Box sx={styles.sidebar}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
 
-      {/* Logo */}
-      {sidebarLogo !== null ? <SidebarLogo /> : null}
+      <Box sx={styles.sidebar}>
+        {/* Logo */}
+        {sidebarLogo !== null ? <SidebarLogo /> : null}
 
-      {/* Menu items */}
-      <List>
-        {
-          sidebarMenuItems.map((item, index) => (
-            <Box key={index}>
-              {
-                'group' in item
-                  ? <SidebarMenuGroup menuGroup={item} />
-                  : <SidebarMenuItem menuItem={item} />
-              }
-            </Box>
-          ))
-        }
-      </List>
+        {/* Menu items */}
+        <List>
+          {
+            sidebarMenuItems.map((item, index) => (
+              <Box key={index}>
+                {
+                  'group' in item
+                    ? <SidebarMenuGroup menuGroup={item} />
+                    : <SidebarMenuItem menuItem={item} />
+                }
+              </Box>
+            ))
+          }
+        </List>
+      </Box>
 
+      {
+        sidebarFooter &&
+        <Box >
+          {sidebarFooter}
+        </Box>
+      }
     </Box>
   )
 }

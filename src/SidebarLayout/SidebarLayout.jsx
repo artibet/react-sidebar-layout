@@ -18,6 +18,7 @@ export const SidebarLayout = ({
   sidebarMenuItems = [],
   topbarMenuItems = [],
   footer,
+  sidebarFooter,
   customize,
 }) => {
 
@@ -80,6 +81,7 @@ export const SidebarLayout = ({
     sidebarLogo,
     topbarLogo,
     footer,
+    sidebarFooter,
     singleGroupOpen,
     activeGroup,
     setActiveGroup,
