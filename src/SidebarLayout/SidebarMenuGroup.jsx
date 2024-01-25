@@ -48,14 +48,20 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // ---------------------------------------------------------------------------------------
   React.useEffect(() => {
     if (!Array.isArray(menuGroup.group)) return
-    menuGroup.group.forEach(item => {
-      const isActive = typeof item.active === 'function' ? item.active() : Boolean(item.active)
-      if (isActive) {
-        setOpen(true)
-        if (singleGroupOpen) setActiveGroup(menuGroup)
-        return
-      }
-    })
+    if (group.open) {
+      setOpen(open)
+      if (singleGroupOpen) setActiveGroup(menuGroup)
+    }
+    else {
+      menuGroup.group.forEach(item => {
+        const isActive = typeof item.active === 'function' ? item.active() : Boolean(item.active)
+        if (isActive) {
+          setOpen(true)
+          if (singleGroupOpen) setActiveGroup(menuGroup)
+          return
+        }
+      })
+    }
   }, [])
 
   // ---------------------------------------------------------------------------------------
