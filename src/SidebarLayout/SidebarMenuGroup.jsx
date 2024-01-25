@@ -49,7 +49,7 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   React.useEffect(() => {
     if (!Array.isArray(menuGroup.group)) return
     if (menuGroup.open) {
-      setOpen(open)
+      setOpen(menuGroup.open)
       if (singleGroupOpen) setActiveGroup(menuGroup)
     }
     else {
