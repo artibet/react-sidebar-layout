@@ -31,7 +31,7 @@ export const TopbarMenuItem = ({ menuItem }) => {
               <MenuItem onClick={menuItem.onClick}>
                 <Box sx={{ color: theme.topbar.textColor, fontSize: `${theme.topbar.textSize}px` }}>{menuItem.label}</Box>
               </MenuItem>
-              : <IconButton sx={{ fontSize: `${theme.topbar.iconSize}px`, color: theme.topbar.iconColor }} onClick={menuItem.onClick}>{menu.icon}</IconButton>
+              : <IconButton sx={{ fontSize: `${theme.topbar.iconSize}px`, color: theme.topbar.iconColor }} onClick={menuItem.onClick}>{menuItem.icon}</IconButton>
         }
       </Box>
     </Tooltip>
