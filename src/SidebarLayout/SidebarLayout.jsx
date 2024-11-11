@@ -156,7 +156,18 @@ export const SidebarLayout = ({
           textSize: 'textSize' in customize.footer ? customize.footer.textSize : selectedTheme.footer.textSize,
           backgroundColor: 'backgroundColor' in customize.footer ? customize.footer.backgroundColor : selectedTheme.footer.backgroundColor,
         }
-        : selectedTheme.footer
+        : selectedTheme.footer,
+
+      section: Boolean(customize) && 'section' in customize
+        ? {
+          marginLeft: 'marginLeft' in customize.section ? customize.section.marginLeft : selectedTheme.section.marginLeft,
+          textColor: 'textColor' in customize.section ? customize.section.textColor : selectedTheme.section.textColor,
+          textSize: 'textSize' in customize.section ? customize.section.textSize : selectedTheme.section.textSize,
+          backgroundColor: 'backgroundColor' in customize.section ? customize.section.backgroundColor : selectedTheme.section.backgroundColor,
+          fontWeight: 'fontWeight' in customize.section ? customize.section.fontWeight : selectedTheme.section.fontWeight,
+
+        }
+        : selectedTheme.section,
     }
 
   }

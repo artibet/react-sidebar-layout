@@ -45,19 +45,42 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
     listItemText: {
       color: hover ? theme.sidebar.menuItemHoverColor : active ? theme.sidebar.menuItemActiveTextColor : '',
       fontSize: `${theme.sidebar.textSize}px`
+    },
+    section: {
+      marginLeft: theme.section?.marginLeft || '5px',
+      color: theme.section?.color || theme.sidebar.textColor,
+      backgroundColor: theme.section?.backgroundColor || theme.sidebar.backgroundColor,
+      fontSize: theme.section?.textSize || theme.sidebar.textSize,
+      fontWeight: theme.section?.fontWeight || 'bold',
     }
   }
 
+  // ---------------------------------------------------------------------------------------
   // JSX
-  return (
-    <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <ListItemButton sx={styles.listItemButton} onClick={menuItem.onClick}
-      >
-        <ListItemIcon sx={styles.listItemIcon}>{menuItem.icon}</ListItemIcon>
-        <ListItemText
-          primaryTypographyProps={styles.listItemText}
-          primary={menuItem.label} />
-      </ListItemButton >
-    </Box>
-  )
+  // ---------------------------------------------------------------------------------------
+
+  // If it is a section header
+  if (menuItem.section) {
+    return (
+      <ListItemText
+        primaryTypographyProps={styles.section}
+        primary={menuItem.label}
+      />
+    )
+  }
+
+  // Normal menu item
+  else {
+    return (
+      <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+        <ListItemButton sx={styles.listItemButton} onClick={menuItem.onClick}
+        >
+          <ListItemIcon sx={styles.listItemIcon}>{menuItem.icon}</ListItemIcon>
+          <ListItemText
+            primaryTypographyProps={styles.listItemText}
+            primary={menuItem.label} />
+        </ListItemButton >
+      </Box>
+    )
+  }
 }

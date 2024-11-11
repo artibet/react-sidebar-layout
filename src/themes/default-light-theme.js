@@ -64,6 +64,15 @@ export const defaultLightTheme = {
     textColor: '#FFFFFF',
     textSize: 16,
     backgroundColor: '#1976D2',
+  },
+
+  // Section header
+  section: {
+    marginLeft: '5px',
+    textColor: '#F9FBFE',
+    textSize: 16,
+    backgroundColor: '#1976D2',
+    fontWeight: 'bold',
   }
 
 

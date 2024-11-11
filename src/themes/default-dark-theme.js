@@ -64,6 +64,15 @@ export const defaultDarkTheme = {
     textColor: '#E4E6EB',
     textSize: 24,
     backgroundColor: '#323639',
+  },
+
+  // Section header
+  section: {
+    marginLeft: '5px',
+    textColor: '#E2E4E8',
+    textSize: 16,
+    backgroundColor: '#323639',
+    fontWeight: 'bold',
   }
 
 }
