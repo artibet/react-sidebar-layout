@@ -48,7 +48,7 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
     },
     section: {
       marginLeft: theme.section?.marginLeft || '5px',
-      textColor: theme.section?.textColor || theme.sidebar.textColor,
+      color: theme.section?.textColor || theme.sidebar.textColor,
       backgroundColor: theme.section?.backgroundColor || theme.sidebar.backgroundColor,
       fontSize: theme.section?.textSize || theme.sidebar.textSize,
       fontWeight: theme.section?.fontWeight || 'bold',
