@@ -9,11 +9,6 @@ export default {
   input: "src/index.js",
   output: [
     {
-      file: './dist/cjs/index.js',
-      format: "cjs",
-      sourcemap: false
-    },
-    {
       file: './dist/esm/index.js',
       format: "esm",
       sourcemap: false
