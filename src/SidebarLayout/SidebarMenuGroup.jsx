@@ -33,15 +33,15 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // ---------------------------------------------------------------------------------------
   // ListItem colors 
   // ---------------------------------------------------------------------------------------
-  const listItemBackgroundColor = React.useMemo(() => {
+  const listItemBackgroundColor = () => {
     if (hover) {
-      return theme.sidebar.groupItemHoverBackgroundColor
+      return `${theme.sidebar.groupItemHoverBackgroundColor} !important`
     }
     if (open) {
-      return theme.sidebar.groupItemActiveBackgroundColor
+      return `${theme.sidebar.groupItemActiveBackgroundColor} !important`
     }
     return '' // default
-  }, [menuGroup])
+  }
 
   // ---------------------------------------------------------------------------------------
   // Set open state on mount
@@ -95,20 +95,20 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
   // ---------------------------------------------------------------------------------------
   const styles = {
     listItemButton: {
-      backgroundColor: listItemBackgroundColor,
+      backgroundColor: listItemBackgroundColor(),
       borderBottom: theme.sidebar.groupItemBorderBottom,
     },
     listItemIcon: {
-      color: hover ? theme.sidebar.iconHoverColor : open ? theme.sidebar.iconActiveColor : theme.sidebar.iconColor,
+      color: hover ? `${theme.sidebar.iconHoverColor} !important` : open ? `${theme.sidebar.iconActiveColor} !important` : `${theme.sidebar.iconColor} !important`,
       fontSize: `${theme.sidebar.iconSize}px`,
       minWidth: `${theme.sidebar.iconMinWidth}px`,
     },
     listItemText: {
-      color: hover ? theme.sidebar.groupItemHoverColor : open ? theme.sidebar.groupItemActiveTextColor : '',
+      color: hover ? `${theme.sidebar.groupItemHoverColor} !important` : open ? `${theme.sidebar.groupItemActiveTextColor} !important` : '',
       fontSize: `${theme.sidebar.textSize}px`
     },
     groupItems: {
-      backgroundColor: `${theme.sidebar.groupBackgroundColor}`
+      backgroundColor: `${theme.sidebar.groupBackgroundColor} !important`
     }
   }
 
@@ -124,12 +124,12 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
 
   // render
   return (
-    <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} sx={{ marginBottom: theme.sidebar.menuItemGap }}>
       <ListItemButton
         sx={styles.listItemButton}
         onClick={handleClick}>
         <ListItemIcon sx={styles.listItemIcon}>{menuGroup.icon}</ListItemIcon>
-        <ListItemText primaryTypographyProps={styles.listItemText} primary={menuGroup.label} />
+        <ListItemText slotProps={{ primary: styles.listItemText }} primary={menuGroup.label} />
         {open ? <ExpandLessIcon size={`${theme.sidebar.iconSize}px`} /> : <ExpandMoreIcon size={`${theme.sidebar.iconSize}px`} />}
       </ListItemButton>
       <Box sx={styles.groupItems}>

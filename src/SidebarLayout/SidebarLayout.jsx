@@ -99,6 +99,7 @@ export const SidebarLayout = ({
           menuItemHoverBackgroundColor: 'menuItemHoverBackgroundColor' in customize.sidebar ? customize.sidebar.menuItemHoverBackgroundColor : selectedTheme.sidebar.menuItemHoverBackgroundColor,
           menuItemActiveBackgroundColor: 'menuItemActiveBackgroundColor' in customize.sidebar ? customize.sidebar.menuItemActiveBackgroundColor : selectedTheme.sidebar.menuItemActiveBackgroundColor,
           menuItemActiveTextColor: 'menuItemActiveTextColor' in customize.sidebar ? customize.sidebar.menuItemActiveTextColor : selectedTheme.sidebar.menuItemActiveTextColor,
+          menuItemGap: 'menuItemGap' in customize.sidebar ? customize.sidebar.menuItemGap : selectedTheme.sidebar.menuItemGap,
           iconColor: 'iconColor' in customize.sidebar ? customize.sidebar.iconColor : selectedTheme.sidebar.iconColor,
           iconHoverColor: 'iconHoverColor' in customize.sidebar ? customize.sidebar.iconHoverColor : selectedTheme.sidebar.iconHoverColor,
           iconActiveColor: 'iconActiveColor' in customize.sidebar ? customize.sidebar.iconActiveColor : selectedTheme.sidebar.iconActiveColor,

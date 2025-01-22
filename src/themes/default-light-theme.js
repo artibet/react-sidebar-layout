@@ -12,6 +12,7 @@ export const defaultLightTheme = {
     menuItemHoverBackgroundColor: '',
     menuItemActiveBackgroundColor: '#DD5701',
     menuItemActiveTextColor: '#F9FBFE',
+    menuItemGap: '0px',
     iconColor: '#F9FBFE',
     iconHoverColor: '#FFFFFF',
     iconActiveColor: '#FFFFFF',

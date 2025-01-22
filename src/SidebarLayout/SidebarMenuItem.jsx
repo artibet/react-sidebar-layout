@@ -35,7 +35,7 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
     listItemButton: {
       borderBottom: theme.sidebar.menuItemBorderBottom,
       pl: inGroup ? 4 : '',
-      backgroundColor: hover ? theme.sidebar.menuItemHoverBackgroundColor : active ? theme.sidebar.menuItemActiveBackgroundColor : '',
+      backgroundColor: hover ? `${theme.sidebar.menuItemHoverBackgroundColor} !important` : active ? `${theme.sidebar.menuItemActiveBackgroundColor} !important` : '',
     },
     listItemIcon: {
       color: hover ? theme.sidebar.iconHoverColor : active ? theme.sidebar.iconActiveColor : theme.sidebar.iconColor,
@@ -63,7 +63,9 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
   if (menuItem.section) {
     return (
       <ListItemText
-        primaryTypographyProps={styles.section}
+        slotProps={{
+          primary: styles.section
+        }}
         primary={menuItem.label}
       />
     )
@@ -72,15 +74,17 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
   // Normal menu item
   else {
     return (
-      <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <Box onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} sx={{ marginBottom: theme.sidebar.menuItemGap }}  >
         <ListItemButton sx={styles.listItemButton} onClick={menuItem.onClick}
         >
           <ListItemIcon sx={styles.listItemIcon}>{menuItem.icon}</ListItemIcon>
           <ListItemText
-            primaryTypographyProps={styles.listItemText}
+            slotProps={{
+              primary: styles.listItemText
+            }}
             primary={menuItem.label} />
         </ListItemButton >
-      </Box>
+      </Box >
     )
   }
 }

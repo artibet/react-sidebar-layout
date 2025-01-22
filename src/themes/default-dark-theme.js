@@ -12,6 +12,7 @@ export const defaultDarkTheme = {
     menuItemHoverBackgroundColor: '',
     menuItemActiveBackgroundColor: '#2E89FF',
     menuItemActiveTextColor: '#E4E6EB',
+    menuItemGap: '0px',
     iconColor: '#E4E6EB',
     iconHoverColor: '#FFFFFF',
     iconActiveColor: '#FFFFFF',
