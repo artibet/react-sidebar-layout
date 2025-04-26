@@ -14,6 +14,7 @@ export const SidebarLayout = ({
   theme = 'dark',
   singleGroupOpen = true,   // One group open at a time
   sidebarLogo,
+  showTopbar = true,
   topbarLogo,
   sidebarMenuItems = [],
   topbarMenuItems = [],
@@ -52,7 +53,8 @@ export const SidebarLayout = ({
     // Set topbar height on mount and on windows size change
     const handleResize = () => {
       const topbarElement = Array.from(document.getElementsByClassName('MuiToolbar-root'))[0]
-      setTopbarHeight(topbarElement.clientHeight)
+      if (!topbarElement) setTopbarHeight(0)
+      else setTopbarHeight(topbarElement.clientHeight)
     }
 
     // Set once on mount
@@ -79,6 +81,7 @@ export const SidebarLayout = ({
     toggleSidebar,
     muiTheme,
     sidebarLogo,
+    showTopbar,
     topbarLogo,
     footer,
     sidebarFooter,

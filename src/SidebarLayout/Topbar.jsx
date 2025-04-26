@@ -17,6 +17,7 @@ export const Topbar = () => {
     toggleSidebar,
     isAboveBreakpoint,
     topbarMenuItems,
+    showTopbar
   } = React.useContext(SidebarLayoutContext)
 
   // ---------------------------------------------------------------
