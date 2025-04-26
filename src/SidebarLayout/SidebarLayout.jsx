@@ -52,9 +52,13 @@ export const SidebarLayout = ({
 
     // Set topbar height on mount and on windows size change
     const handleResize = () => {
-      const topbarElement = Array.from(document.getElementsByClassName('MuiToolbar-root'))[0]
-      if (!topbarElement) setTopbarHeight(0)
-      else setTopbarHeight(topbarElement.clientHeight)
+      if (!showTopbar) {
+        setTopbarHeight(0)
+      }
+      else {
+        const topbarElement = Array.from(document.getElementsByClassName('MuiToolbar-root'))[0]
+        setTopbarHeight(topbarElement.clientHeight)
+      }
     }
 
     // Set once on mount
@@ -211,7 +215,7 @@ export const SidebarLayout = ({
         <Sidebar />
 
         {/* Top bar */}
-        <Topbar />
+        {showTopbar && <Topbar />}
 
         {/* main Content */}
         <Box sx={styles.mainContent}>
