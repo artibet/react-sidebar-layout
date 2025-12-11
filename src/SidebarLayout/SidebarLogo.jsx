@@ -9,17 +9,13 @@ export const SidebarLogo = () => {
   // ---------------------------------------------------------------
   const {
     theme,
-    muiTheme,
     sidebarLogo,
   } = React.useContext(SidebarLayoutContext)
 
   // STYLES
   const styles = {
     logo: {
-      display: 'flex',
-      justifyContent: 'center',
       borderBottom: theme.sidebar.logoBorderBottom,
-      padding: muiTheme.spacing(4),
     },
   }
 

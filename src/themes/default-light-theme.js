@@ -5,6 +5,7 @@ export const defaultLightTheme = {
     width: 250,
     textColor: '#F9FBFE',
     textSize: 16,
+    textWeight: 'normal',
     backgroundColor: '#1976D2',
     logoBorderBottom: '1px solid #999999',
     menuItemBorderBottom: '1px solid #999999',

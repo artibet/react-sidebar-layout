@@ -5,6 +5,7 @@ export const defaultDarkTheme = {
     width: 250,
     textColor: '#E2E4E8',
     textSize: 16,
+    textWeight: 'normal',
     backgroundColor: '#323639',
     logoBorderBottom: '1px solid gray',
     menuItemBorderBottom: '1px solid gray',

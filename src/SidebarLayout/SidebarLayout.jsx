@@ -99,6 +99,7 @@ export const SidebarLayout = ({
           width: 'width' in customize.sidebar ? customize.sidebar.width : selectedTheme.sidebar.width,
           textColor: 'textColor' in customize.sidebar ? customize.sidebar.textColor : selectedTheme.sidebar.textColor,
           textSize: 'textSize' in customize.sidebar ? customize.sidebar.textSize : selectedTheme.sidebar.textSize,
+          textWeight: 'textWeight' in customize.sidebar ? customize.sidebar.textWeight : selectedTheme.sidebar.textWeight,
           backgroundColor: 'backgroundColor' in customize.sidebar ? customize.sidebar.backgroundColor : selectedTheme.sidebar.backgroundColor,
           logoBorderBottom: 'logoBorderBottom' in customize.sidebar ? customize.sidebar.logoBorderBottom : selectedTheme.sidebar.logoBorderBottom,
           menuItemBorderBottom: 'menuItemBorderBottom' in customize.sidebar ? customize.sidebar.menuItemBorderBottom : selectedTheme.sidebar.menuItemBorderBottom,

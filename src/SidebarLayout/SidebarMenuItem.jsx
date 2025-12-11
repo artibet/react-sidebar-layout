@@ -44,7 +44,8 @@ export const SidebarMenuItem = ({ menuItem, inGroup = false }) => {
     },
     listItemText: {
       color: hover ? theme.sidebar.menuItemHoverColor : active ? theme.sidebar.menuItemActiveTextColor : '',
-      fontSize: `${theme.sidebar.textSize}px`
+      fontSize: `${theme.sidebar.textSize}px`,
+      fontWeight: theme.sidebar.fontWeight,
     },
     section: {
       marginLeft: theme.section?.marginLeft || '5px',
