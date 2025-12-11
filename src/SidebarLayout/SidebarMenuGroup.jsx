@@ -106,7 +106,7 @@ export const SidebarMenuGroup = ({ menuGroup }) => {
     listItemText: {
       color: hover ? `${theme.sidebar.groupItemHoverColor} !important` : open ? `${theme.sidebar.groupItemActiveTextColor} !important` : '',
       fontSize: `${theme.sidebar.textSize}px`,
-      fontWeight: theme.sidebar.fontWeight,
+      fontWeight: theme.sidebar.textWeight,
     },
     groupItems: {
       backgroundColor: `${theme.sidebar.groupBackgroundColor} !important`
