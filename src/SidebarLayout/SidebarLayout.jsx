@@ -57,7 +57,9 @@ export const SidebarLayout = ({
       }
       else {
         const topbarElement = Array.from(document.getElementsByClassName('MuiToolbar-root'))[0]
-        setTopbarHeight(topbarElement.clientHeight)
+        if (topbarElement) {
+          setTopbarHeight(topbarElement.clientHeight)
+        }
       }
     }
 
@@ -67,7 +69,12 @@ export const SidebarLayout = ({
     // set on resize
     window.addEventListener('resize', handleResize)
 
-  }, [])
+    // Clean up the listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+
+  }, [showTopbar])
 
   // ---------------------------------------------------------------
   // Toggle sidebar visibility
